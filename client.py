@@ -63,24 +63,24 @@ def version_verify(verison_api):
   with open(filename, 'r') as f:
    data = json.loads(f.read())
   if verison_api != data["version"]:
-     custom_generate_gradient_text("[ - ] Script Is Outdated\n\n","#006400","#CCFF33",0.5)
-     custom_generate_gradient_text(f"[ - ] Are You Want To Update This Script To {verison_api} [Y\\N]","#006400","#CCFF33",0.5)
+     custom_generate_gradient_text("[ - ] Script Is Outdated\n\n","#FFFFFF","#FFFFFF",0.5)
+     custom_generate_gradient_text(f"[ - ] Are You Want To Update This Script To {verison_api} [Y\\N]","#FFFFFF","#FFFFFF",0.5)
      ask = input(" ")
      if ask.lower() == "n":
-       custom_generate_gradient_text("\n[ - ] Permission Declined\n\n","#006400","#CCFF33",0.5)
+       custom_generate_gradient_text("\n[ - ] Permission Declined\n\n","#FFFFFF","#FFFFFF",0.5)
      else:  
-       custom_generate_gradient_text("\n[ - ] Updating Script\n\n","#006400","#CCFF33",0.5)
+       custom_generate_gradient_text("\n[ - ] Updating Script\n\n","#FFFFFF","#FFFFFF",0.5)
        update_script(verison_api)
      return "Update"
 def update_script(verison_api):
    os.system("git pull origin main")
-   custom_generate_gradient_text(f"\n[ - ] Restarting Script\n\n","#007200","#CCFF33",0.5)
+   custom_generate_gradient_text(f"\n[ - ] Restarting Script\n\n","#FFFFFF","#FFFFFF",0.5)
    os.system("python client.py")
 def loaded_menu():
    try:
      server_data = requests.get("https://raw.githubusercontent.com/DIPx69/AnimationX/main/config.json").json()
    except Exception as e:
-     custom_generate_gradient_text("[ - ] No Internet Connection Found\n\n","#38B000","#CCFF33",0.5)
+     custom_generate_gradient_text("[ - ] No Internet Connection Found\n\n","#FFFFFF","#FFFFFF",0.5)
      return 0
    verison = server_data["version"]
    check = version_verify(verison)
@@ -98,7 +98,6 @@ def generate_animation_list():
    animations = os.listdir("animations")
    return animations
 def start_animation(animation_name):
-   print(animation_name)
    custom_generate_gradient_text(f"\n[ - ] Starting {animation_name} \n","#FFFFFF","#FFFFFF",0.5)
    os.system("clear")
    os.system(f"python animations/{animation_name}")
